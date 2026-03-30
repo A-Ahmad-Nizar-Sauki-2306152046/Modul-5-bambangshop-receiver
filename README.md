@@ -39,7 +39,7 @@ You can install Postman via this website: https://www.postman.com/downloads/
     ROCKET_PORT=8001
     APP_INSTANCE_ROOT_URL=http://localhost:${ROCKET_PORT}
     APP_PUBLISHER_ROOT_URL=http://localhost:8000
-    APP_INSTANCE_NAME=Safira Sudrajat
+    APP_INSTANCE_NAME=Ahmad Nizar Sauki
     ```
     Here are the details of each environment variable:
     | variable                | type   | description                                                     |
@@ -61,7 +61,7 @@ You can install Postman via this website: https://www.postman.com/downloads/
 ## Mandatory Checklists (Subscriber)
 -   [x] Clone https://gitlab.com/ichlaffterlalu/bambangshop-receiver to a new repository.
 -   **STAGE 1: Implement models and repositories**
-    -   [ ] Commit: `Create Notification model struct.`
+    -   [x] Commit: `Create Notification model struct.`
     -   [x] Commit: `Create SubscriberRequest model struct.`
     -   [ ] Commit: `Create Notification database and Notification repository struct skeleton.`
     -   [ ] Commit: `Implement add function in Notification repository.`
