@@ -39,7 +39,7 @@ You can install Postman via this website: https://www.postman.com/downloads/
     ROCKET_PORT=8001
     APP_INSTANCE_ROOT_URL=http://localhost:${ROCKET_PORT}
     APP_PUBLISHER_ROOT_URL=http://localhost:8000
-    APP_INSTANCE_NAME=Safira Sudrajat
+    APP_INSTANCE_NAME=Ahmad Nizar Sauki
     ```
     Here are the details of each environment variable:
     | variable                | type   | description                                                     |
@@ -59,14 +59,14 @@ You can install Postman via this website: https://www.postman.com/downloads/
     -   Open another new terminal, edit `ROCKET_PORT` in `.env` to `8003`, then execute `cargo run`.
 
 ## Mandatory Checklists (Subscriber)
--   [ ] Clone https://gitlab.com/ichlaffterlalu/bambangshop-receiver to a new repository.
+-   [x] Clone https://gitlab.com/ichlaffterlalu/bambangshop-receiver to a new repository.
 -   **STAGE 1: Implement models and repositories**
-    -   [ ] Commit: `Create Notification model struct.`
-    -   [ ] Commit: `Create SubscriberRequest model struct.`
-    -   [ ] Commit: `Create Notification database and Notification repository struct skeleton.`
-    -   [ ] Commit: `Implement add function in Notification repository.`
-    -   [ ] Commit: `Implement list_all_as_string function in Notification repository.`
-    -   [ ] Write answers of your learning module's "Reflection Subscriber-1" questions in this README.
+    -   [x] Commit: `Create Notification model struct.`
+    -   [x] Commit: `Create SubscriberRequest model struct.`
+    -   [x] Commit: `Create Notification database and Notification repository struct skeleton.`
+    -   [x] Commit: `Implement add function in Notification repository.`
+    -   [x] Commit: `Implement list_all_as_string function in Notification repository.`
+    -   [x] Write answers of your learning module's "Reflection Subscriber-1" questions in this README.
 -   **STAGE 3: Implement services and controllers**
     -   [ ] Commit: `Create Notification service struct skeleton.`
     -   [ ] Commit: `Implement subscribe function in Notification service.`
@@ -85,5 +85,9 @@ This is the place for you to write reflections:
 ### Mandatory (Subscriber) Reflections
 
 #### Reflection Subscriber-1
+
+1. `RwLock` digunakan karena memungkinkan banyak thread melakukan read secara bersamaan dan hanya mengunci saat write. Ini lebih efisien dibanding `Mutex` yang selalu mengunci penuh baik untuk read maupun write, sehingga tidak bisa paralel.
+
+2. Rust tidak mengizinkan mutasi langsung pada `static` karena alasan safety dan untuk mencegah data race. Oleh karena itu digunakan `lazy_static` agar inisialisasi aman, serta `RwLock` untuk mengatur akses read/write secara thread-safe.
 
 #### Reflection Subscriber-2
