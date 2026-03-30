@@ -66,7 +66,7 @@ You can install Postman via this website: https://www.postman.com/downloads/
     -   [x] Commit: `Create Notification database and Notification repository struct skeleton.`
     -   [x] Commit: `Implement add function in Notification repository.`
     -   [x] Commit: `Implement list_all_as_string function in Notification repository.`
-    -   [ ] Write answers of your learning module's "Reflection Subscriber-1" questions in this README.
+    -   [x] Write answers of your learning module's "Reflection Subscriber-1" questions in this README.
 -   **STAGE 3: Implement services and controllers**
     -   [ ] Commit: `Create Notification service struct skeleton.`
     -   [ ] Commit: `Implement subscribe function in Notification service.`
@@ -85,5 +85,9 @@ This is the place for you to write reflections:
 ### Mandatory (Subscriber) Reflections
 
 #### Reflection Subscriber-1
+
+1. `RwLock` digunakan karena memungkinkan banyak thread melakukan read secara bersamaan dan hanya mengunci saat write. Ini lebih efisien dibanding `Mutex` yang selalu mengunci penuh baik untuk read maupun write, sehingga tidak bisa paralel.
+
+2. Rust tidak mengizinkan mutasi langsung pada `static` karena alasan safety dan untuk mencegah data race. Oleh karena itu digunakan `lazy_static` agar inisialisasi aman, serta `RwLock` untuk mengatur akses read/write secara thread-safe.
 
 #### Reflection Subscriber-2
