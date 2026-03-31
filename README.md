@@ -67,17 +67,17 @@ You can install Postman via this website: https://www.postman.com/downloads/
     -   [x] Commit: `Implement add function in Notification repository.`
     -   [x] Commit: `Implement list_all_as_string function in Notification repository.`
     -   [x] Write answers of your learning module's "Reflection Subscriber-1" questions in this README.
--   **STAGE 3: Implement services and controllers**
-    -   [ ] Commit: `Create Notification service struct skeleton.`
-    -   [ ] Commit: `Implement subscribe function in Notification service.`
-    -   [ ] Commit: `Implement subscribe function in Notification controller.`
-    -   [ ] Commit: `Implement unsubscribe function in Notification service.`
-    -   [ ] Commit: `Implement unsubscribe function in Notification controller.`
-    -   [ ] Commit: `Implement receive_notification function in Notification service.`
-    -   [ ] Commit: `Implement receive function in Notification controller.`
-    -   [ ] Commit: `Implement list_messages function in Notification service.`
-    -   [ ] Commit: `Implement list function in Notification controller.`
-    -   [ ] Write answers of your learning module's "Reflection Subscriber-2" questions in this README.
+-   **STAGE 2: Implement services and controllers**
+    -   [x] Commit: `Create Notification service struct skeleton.`
+    -   [x] Commit: `Implement subscribe function in Notification service.`
+    -   [x] Commit: `Implement subscribe function in Notification controller.`
+    -   [x] Commit: `Implement unsubscribe function in Notification service.`
+    -   [x] Commit: `Implement unsubscribe function in Notification controller.`
+    -   [x] Commit: `Implement receive_notification function in Notification service.`
+    -   [x] Commit: `Implement receive function in Notification controller.`
+    -   [x] Commit: `Implement list_messages function in Notification service.`
+    -   [x] Commit: `Implement list function in Notification controller.`
+    -   [x] Write answers of your learning module's "Reflection Subscriber-2" questions in this README.
 
 ## Your Reflections
 This is the place for you to write reflections:
@@ -91,3 +91,9 @@ This is the place for you to write reflections:
 2. Rust tidak mengizinkan mutasi langsung pada `static` karena alasan safety dan untuk mencegah data race. Oleh karena itu digunakan `lazy_static` agar inisialisasi aman, serta `RwLock` untuk mengatur akses read/write secara thread-safe.
 
 #### Reflection Subscriber-2
+
+1. Saya telah mengeksplorasi bagian di luar langkah tutorial, seperti `src/lib.rs`, dan belajar bahwa file tersebut sebagai pusat registrasi modul (model, repository, service, controller) serta tempat inisialisasi konfigurasi utama aplikasi. Dari hal ini, saya memahami bagaimana variabel *environment* dimuat menggunakan *lazy_static* dan bagaimana *HTTP client* (`reqwest`) disiapkan secara global agar bisa digunakan seluruh bagian aplikasi untuk berkomunikasi dengan *Publisher*.
+
+2. *Observer pattern* sangat memudahkan penambahan *subscriber* baru karena sistem bersifat *loosely coupled*; *Publisher* (Main app) tidak perlu mengetahui detail implementasi *Receiver*, tapi cuma perlu menyimpan daftar URL *subscriber* dan mem-*broadcast* notifikasi ke URL tersebut. Tapi, jika kita menjalankan lebih dari satu *instance* Main app (*Publisher*), prosesnya tidak akan semudah itu karena kita memerlukan mekanisme tambahan untuk mensinkronisasi daftar *subscriber* dan memastikan tidak ada notifikasi ganda atau terlewat antar *instance* Publisher.
+
+3. Saya telah mencoba memanfaatkan fitur Postman dengan menyimpan *environment variables* (seperti URL dan port) dan merapikan *payload request* untuk mempermudah pengujian. Merapikan dokumentasi Postman ini terbukti sangat berguna baik untuk pengerjaan tutorial maupun proyek kelompok, karena dapat mempercepat proses *debugging*, memastikan format *request* selalu konsisten, dan memudahkan anggota tim lain untuk langsung mencoba *endpoint* API tanpa perlu menyusun konfigurasi dari nol.
